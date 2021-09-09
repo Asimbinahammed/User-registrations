@@ -7,13 +7,11 @@ public class UserRegistration {
 
 	// validating first name
 	public void validateFirstName() {
-		String pattern = "^[A-z][a-zA-z]{2,}$"; // declaring string pattern
-		Scanner sd = new Scanner(System.in);
-
+		String pattern = "^[A-Z][a-zA-z]{2,}$"; // declaring string pattern
 		System.out.println("Enter the first name");
 		String firstName = scanner.next();
 
-		// checking whether firstname matches pattern ot not
+		// checking whether first name matches pattern or not
 		if (firstName.matches(pattern)) {
 			System.out.println("Valid first Name");
 		} else {
