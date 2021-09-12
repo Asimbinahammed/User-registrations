@@ -56,13 +56,30 @@ public class UserRegistration {
 		}
 	}
 
+	// validating phone number
+	public void phoneNumberValidation() {
+		// phone number regex
+		String pattern = "^([0-9]{2}[\\-])*[0-9]{10}$";
+		System.out.println("Enter the Phone number");
+		String phNum = scanner.next();
+
+		// checking whether phone number matches pattern or not
+		if (phNum.matches(pattern)) {
+			System.out.println("Valid phone number ");
+		} else {
+			System.out.println("Invalid phone number ");
+			phoneNumberValidation();
+		}
+
+	}
+
 	// main method
 	public static void main(String[] args) {
 		System.out.println("Welcome to User registration");
 		UserRegistration user = new UserRegistration();
 		// user.validateName(); // first and last names validation
-		 user.validateEmail(); // email validation
-		
+		// user.validateEmail(); // email validation
+		user.phoneNumberValidation(); // phone number validation
 	}
 
 }
