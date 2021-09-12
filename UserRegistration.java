@@ -75,9 +75,9 @@ public class UserRegistration {
 	// validating password
 	public void passwordValidation() {
 		System.out.println("Enter the Password");
-		// password of 8 letters ,contains atleast one capital letter
 		String password = scanner.next();
-		String pattern = "^(?=.[A-Za-z0-9])(?=.*[A-Z]).{8,}$";
+		//password regex
+		String pattern = "^(?=.[A-Za-z0-9])(?=.*[0-9])(?=.*[A-Z]).{8,}$";
 
 		// checking whether password matches pattern or not
 		if (password.matches(pattern)) {
@@ -93,9 +93,9 @@ public class UserRegistration {
 	public static void main(String[] args) {
 		System.out.println("Welcome to User registration");
 		UserRegistration user = new UserRegistration();
-		user.validateName(); // first and last names validation
-		user.validateEmail(); // email validation
-		user.phoneNumberValidation(); // phone number validation
+		//user.validateName(); // first and last names validation
+		//user.validateEmail(); // email validation
+		//user.phoneNumberValidation(); // phone number validation
 		user.passwordValidation();
 	}
 
