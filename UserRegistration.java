@@ -70,7 +70,23 @@ public class UserRegistration {
 			System.out.println("Invalid phone number ");
 			phoneNumberValidation();
 		}
-
+	}
+	
+	//validating password
+	public void passwordValidation() {
+		System.out.println("Enter the Password");
+		//password of 8 letters
+		String password = scanner.next();
+		String pattern = "^[A-Za-z0-9]{8,}$";
+		
+		//checking whether password matches pattern or not
+		if (password.matches(pattern)) {
+			System.out.println("Valid password ");
+		} else {
+			System.out.println("Invalid password ");
+			passwordValidation();
+		}
+		
 	}
 
 	// main method
@@ -79,7 +95,8 @@ public class UserRegistration {
 		UserRegistration user = new UserRegistration();
 		// user.validateName(); // first and last names validation
 		// user.validateEmail(); // email validation
-		user.phoneNumberValidation(); // phone number validation
+		//user.phoneNumberValidation(); // phone number validation
+		user.passwordValidation();
 	}
 
 }
