@@ -93,9 +93,9 @@ public class UserRegistration {
 	public static void main(String[] args) {
 		System.out.println("Welcome to User registration");
 		UserRegistration user = new UserRegistration();
-		//user.validateName(); // first and last names validation
-		//user.validateEmail(); // email validation
-		//user.phoneNumberValidation(); // phone number validation
+		user.validateName(); // first and last names validation
+		user.validateEmail(); // email validation
+		user.phoneNumberValidation(); // phone number validation
 		user.passwordValidation();
 	}
 
