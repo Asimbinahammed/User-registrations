@@ -5,10 +5,16 @@
 
 package bridgelab;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserRegistration {
 	Scanner scanner = new Scanner(System.in);
+	//For Email Validation
+    private static final String EMAIL_ID = "^[A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_ID);
 
 	// validating first name
 	public void validateName() {
@@ -76,7 +82,7 @@ public class UserRegistration {
 	public void passwordValidation() {
 		System.out.println("Enter the Password");
 		String password = scanner.next();
-		//password regex 
+		// password regex
 		String pattern = "^(?=.[A-Za-z0-9])(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$";
 
 		// checking whether password matches pattern or not
@@ -86,8 +92,13 @@ public class UserRegistration {
 			System.out.println("Invalid password ");
 			passwordValidation();
 		}
-
 	}
+	
+	  private void check_Valid_Email(ArrayList<String> emails) {
+	        for (String email : emails) {
+	            System.out.println("Is the email valid? " + email.matches(EMAIL_ID));
+	        }
+	    }
 
 	// main method
 	public static void main(String[] args) {
@@ -96,7 +107,31 @@ public class UserRegistration {
 		user.validateName(); // first and last names validation
 		user.validateEmail(); // email validation
 		user.phoneNumberValidation(); // phone number validation
-		user.passwordValidation();
+		user.passwordValidation();//password validation
+		
+		ArrayList<String> emails = new ArrayList<String>();
+        emails.add("abc@yahoo.com");
+        emails.add("abc-100@yahoo.com");
+        emails.add("abc.100@yahoo.com");
+        emails.add("abc111@abc.com");
+        emails.add("abc-100@abc.net");
+        emails.add("abc.100@abc.com.au");
+        emails.add("abc@1.com");
+        emails.add("abc@gmail.com.com");
+        emails.add("abc");
+        emails.add("abc@.com.my");
+        emails.add("abc123@gmail.a");
+        emails.add("abc123@.com");
+        emails.add("abc123@.com.com");
+        emails.add(".abc@abc.com");
+        emails.add("abc()*@gmail.com");
+        emails.add("abc@%*.com");
+        emails.add("abc..2002@gmail.com");
+        emails.add("abc.@gmail.com");
+        emails.add("abc@abc@gmail.com");
+        emails.add("abc@gmail.com.1a");
+        emails.add("abc@gmail.com.aa.au");
+        user.check_Valid_Email(emails);
 	}
 
 }
