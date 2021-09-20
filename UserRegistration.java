@@ -7,15 +7,13 @@ package bridgelab;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class UserRegistration {
 	Scanner scanner = new Scanner(System.in);
 	// For Email Validation
 	private static final String EMAIL_ID = "^[A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-	private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_ID);
 
 	// validating first name
 	public void validateName() {
